@@ -3,22 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vivek Chauhan - Portfolio</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Vivek Chauhan | Portfolio</title>
+
+    <!-- Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <a href="#" class="logo">Portfolio</a>
-        <ul>
-            <li class="active"><a href="#home">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#skills">SKILLS</a></li>
-            <li><a href="#projects">PROJECTS</a></li>
-            <li><a href="#contact">CONTACT</a></li>   
-        </ul>
-    </nav>
 
+    <!-- Background animation -->
     <div class="bars-animation">
         <div class="bar" style="--i:6;"></div>
         <div class="bar" style="--i:5;"></div>
@@ -27,76 +22,187 @@
         <div class="bar" style="--i:2;"></div>
         <div class="bar" style="--i:1;"></div>
     </div>
-    
-    <section id="home" class="home">
-        <div class="home-info">
-            <h1>Vivek Chauhan</h1>
-            <h2>I am 
-                <span style="--i:4;" data-text="an engineering undergrad">an engineering undergrad</span>
-                <span style="--i:3;" data-text="a techie">a techie</span>
-                <span style="--i:2;" data-text="a sleep enthusiast">a sleep enthusiast</span>
-                <span style="--i:1;" data-text="BATMAN">BATMAN</span>
-            </h2>
-            <p>I am Vivek Chauhan, an engineering undergraduate at KIET Group of Institutions, majoring in Computer Science. As a tech enthusiast, I am passionate about exploring innovative solutions and constantly enhancing my skills in programming, problem-solving, and emerging technologies. My journey as a CS student is driven by a curiosity to learn, grow, and make meaningful contributions to the ever-evolving tech world.</p>
-            <div class="butn-soci">
-                <a href="#" class="butn">Download CV</a>
-                <div class="soci">
-                    <a href="#"><i class='bx bxl-github'></i></a>
-                    <a href="#"><i class='bx bxl-linkedin'></i></a>
-                    <a href="#"><i class='bx bxl-reddit' ></i></a>
-                    <a href="#"><i class='bx bxl-youtube' ></i></a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="home-imag">
-            <div class="imag-box">
-                <div class="imag-item">
-                    <img src="me.jpg" alt="Vivek Chauhan">
-                </div>
-            </div>
-        </div>
-    </section>
 
+    <!-- HEADER -->
+    <header>
+
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <a href="#" class="logo">Portfolio</a>
+            <ul>
+                <li class="active"><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#skills">SKILLS</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+
+        <!-- HOME SECTION -->
+        <section id="home" class="home">
+
+            <div class="home-info">
+                <h1>Vivek Chauhan</h1>
+
+                <h2>I am
+                    <span style="--i:4;" data-text="a Computer Science student">a Computer Science student</span>
+                    <span style="--i:3;" data-text="interested in AI & ML">interested in AI & ML</span>
+                    <span style="--i:2;" data-text="a problem solver">a problem solver</span>
+                    <span style="--i:1;" data-text="a tech enthusiast">a tech enthusiast</span>
+                </h2>
+
+                <p>
+                    I am a Computer Science undergraduate with a strong interest in Artificial Intelligence
+                    and Machine Learning. I enjoy building systems that combine programming fundamentals
+                    with data-driven problem solving, and I continuously focus on strengthening my core
+                    understanding of how real-world software and ML systems work.
+                </p>
+
+                <div class="butn-soci">
+                    <a href="#" class="butn">Download CV</a>
+
+                    <div class="soci">
+                        <a href="https://github.com/Vivek-afk81" target="_blank"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.linkedin.com/in/vivek-chauhan-500396340" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                        <a href="#"><i class='bx bxl-reddit'></i></a>
+                        <a href="#"><i class='bx bxl-youtube'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-imag">
+                <div class="imag-box">
+                    <div class="imag-item">
+                        <img src="me.jpg" alt="Vivek Chauhan">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </header>
+
+    <!-- MAIN CONTENT -->
     <main>
-        <section id="about">
+
+        <!-- ABOUT -->
+        <section id="about" class="section">
             <h2>About Me</h2>
-            <p>Hello! I'm Vivek, a passionate Computer Science student eager to learn and grow in the world of technology. As a first-year engineering undergraduate, I'm excited to explore various aspects of computer science and contribute to innovative projects.</p>
+            <p>
+                I am a Computer Science student passionate about learning how modern software
+                and machine learning systems are built. Through academic and personal projects,
+                I have worked on applied machine learning classification problems, Python-based
+                automation tools, and performance-oriented C++ applications.
+            </p>
+            <p>
+                I believe in building strong fundamentals and understanding concepts deeply,
+                rather than rushing incomplete solutions. My long-term goal is to develop
+                reliable and well-understood AI/ML systems.
+            </p>
         </section>
 
-        <section id="skills">
+        <!-- SKILLS -->
+        <section id="skills" class="section">
             <h2>Skills</h2>
+
+            <h3>Programming Languages</h3>
             <ul>
-                <li>HTML & CSS</li>
-                <li>Basic JavaScript</li>
-                <li>Python fundamentals</li>
-                <li>Problem-solving</li>
-                <li>Teamwork</li>
+                <li>Python</li>
+                <li>C++</li>
+            </ul>
+
+<h3>Machine Learning</h3>
+<ul>
+  <li>Supervised & Unsupervised Learning (Classification, Clustering)</li>
+  <li>Feature Engineering, Scaling & Encoding</li>
+  <li>Algorithms: kNN, Logistic Regression, Random Forest, XGBoost</li>
+  <li>Neural Networks, Transformers</li>
+</ul>
+
+
+<h3>Data & Tools</h3>
+<ul>
+  <li>Pandas, NumPy,scipy</li>
+  <li>Scikit-learn</li>
+  <li>PyTorch / TensorFlow</li>
+  <li>Hugging Face Transformers</li>
+  <li>Matplotlib / Seaborn</li>
+  <li>Google Colab / Jupyter Notebook</li>
+  <li>Weights & Biases (W&B)</li>
+  <li>CSV / JSON / Excel / Parquet</li>
+</ul>
+
+            <h3>Development</h3>
+            <ul>
+                <li>HTML, CSS, JS</li>
+                <li>Git & GitHub</li>
+                <li>Command-line Tools</li>
             </ul>
         </section>
 
-        <section id="projects">
+        <!-- PROJECTS -->
+        <section id="projects" class="section">
             <h2>Projects</h2>
+
             <div class="project">
-                <h3>Personal Website</h3>
-                <p>Created this portfolio website using HTML and CSS to showcase my progress as a CS student.</p>
+                <h3>Breast Cancer Classification (Machine Learning)</h3>
+                <p>
+                    Built an end-to-end machine learning classification pipeline using kNN,
+                    Logistic Regression, Random Forest, and XGBoost. Implemented feature
+                    scaling, encoding, cross-validation, and ROC-AUC evaluation to compare
+                    model performance.
+                </p>
             </div>
+
             <div class="project">
-                <h3>Python Calculator</h3>
-                <p>Developed a simple calculator application using Python as part of my introductory programming course.</p>
+                <h3>Finance ML – Stock Direction Prediction</h3>
+                <p>
+                    Developed a binary classification model to predict whether a stock’s
+                    next-day return would be positive or negative using historical financial data.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>SalesReportGenerator (Python)</h3>
+                <p>
+                    Created a Python-based command-line tool that reads product data from files,
+                    processes sales information, and generates reports in CSV, JSON, and Excel
+                    formats.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>Turbo Trails (C++ / Raylib)</h3>
+                <p>
+                    A fast-paced 2D side-scrolling runner game built using C++ and Raylib,
+                    focusing on game loops, collision handling, and performance-oriented logic.
+                </p>
             </div>
         </section>
 
-        <section id="contact">
+        <!-- CONTACT -->
+        <section id="contact" class="section">
             <h2>Contact Me</h2>
             <p>Email: vivekchauhan560999@gmail.com</p>
-            <p>GitHub: <a href="https://github.com/Vivek-afk81" target="_blank">github.com/vivek_afk</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/vivek-chauhan-500396340?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">linkedin.com/in/vivekchauhan</a></p>
+            <p>
+                GitHub:
+                <a href="https://github.com/Vivek-afk81" target="_blank">
+                    github.com/Vivek-afk81
+                </a>
+            </p>
+            <p>
+                LinkedIn:
+                <a href="https://www.linkedin.com/in/vivek-chauhan-500396340" target="_blank">
+                    linkedin.com/in/vivek-chauhan
+                </a>
+            </p>
         </section>
+
     </main>
 
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2024 Vivek Chauhan. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
