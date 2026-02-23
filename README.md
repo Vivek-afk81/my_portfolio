@@ -1,2 +1,2 @@
-# my_portfolio
-This is my first personal portfolio website built using HTML and CSS. It showcases my projects, skills, and contact information. The website is designed to provide a clean and professional overview of my profile.
+# Portfolio
+This is my personal portfolio website built using HTML and CSS to present my technical journey, projects, and skills in a structured and professional format. It highlights my work in Data Structures, Machine Learning, AI systems, and software development, serving as a central hub for my academic and practical projects.
