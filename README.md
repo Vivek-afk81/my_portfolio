@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Vivek Chauhan — Portfolio
 
 A modern, premium portfolio website built with **React + Vite** (frontend) and **FastAPI** (backend).
@@ -72,3 +73,7 @@ The frontend runs on `http://localhost:5173` and the backend on `http://localhos
 7. **Certifications** — AWS Cloud Practitioner badge
 8. **Achievements** — Activities & competitions
 9. **Contact** — Form (posts to backend) + contact info
+=======
+# Portfolio
+This is my personal portfolio website built using HTML and CSS to present my technical journey, projects, and skills in a structured and professional format. It highlights my work in Data Structures, Machine Learning, AI systems, and software development, serving as a central hub for my academic and practical projects.
+>>>>>>> 2751be8ed86473e46736d156d9690f4cf263cd91
