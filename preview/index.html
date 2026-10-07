@@ -1,0 +1,1614 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Vivek Chauhan | AI/ML Engineer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    :root {
+
+      --background: #f5f8f5;
+      --surface: #ffffff;
+      --surface-green: #f0f8f2;
+
+      --green: #087f35;
+      --green-bright: #00a83b;
+      --green-light: #dff3e5;
+
+      --text: #111814;
+      --text-secondary: #536159;
+      --text-muted: #78857d;
+
+      --border: #dce6df;
+      --border-green: #a9d5b7;
+
+      --max-width: 1150px;
+
+    }
+
+
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      background: var(--background);
+
+      color: var(--text);
+
+      font-family: "DM Sans", sans-serif;
+
+      line-height: 1.6;
+
+      overflow-x: hidden;
+
+    }
+
+
+    /* =========================
+       MATRIX BACKGROUND
+    ========================= */
+
+    #matrix {
+
+      position: fixed;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      z-index: -2;
+
+      opacity: 0.035;
+
+      pointer-events: none;
+
+    }
+
+
+    /* subtle grid */
+
+    .grid {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: -1;
+
+      pointer-events: none;
+
+      background-image:
+
+        linear-gradient(
+          rgba(8,127,53,0.035) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(8,127,53,0.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 40px 40px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 75%
+        );
+
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      z-index: 100;
+
+      background:
+        rgba(245,248,245,0.85);
+
+      backdrop-filter: blur(14px);
+
+      border-bottom:
+        1px solid var(--border);
+
+    }
+
+
+    .nav-container {
+
+      max-width: var(--max-width);
+
+      height: 72px;
+
+      margin: auto;
+
+      padding: 0 25px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+    }
+
+
+    .logo {
+
+      font-family:
+        "JetBrains Mono",
+        monospace;
+
+      font-weight: 600;
+
+      color: var(--green);
+
+      font-size: 16px;
+
+    }
+
+
+    .logo::before {
+
+      content: "> ";
+
+      color: var(--green-bright);
+
+    }
+
+
+    .nav-links {
+
+      display: flex;
+
+      gap: 30px;
+
+      list-style: none;
+
+    }
+
+
+    .nav-links a {
+
+      text-decoration: none;
+
+      color: var(--text-secondary);
+
+      font-family:
+        "JetBrains Mono",
+        monospace;
+
+      font-size: 12px;
+
+      transition: 0.25s;
+
+    }
+
+
+    .nav-links a:hover {
+
+      color: var(--green);
+
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+
+      max-width: var(--max-width);
+
+      min-height: 100vh;
+
+      margin: auto;
+
+      padding:
+        140px 25px 100px;
+
+      display: flex;
+
+      align-items: center;
+
+    }
+
+
+    .hero-content {
+
+      max-width: 850px;
+
+    }
+
+
+    .terminal-line {
+
+      font-family:
+        "JetBrains Mono",
+        monospace;
+
+      color: var(--green);
+
+      font-size: 13px;
+
+      margin-bottom: 22px;
+
+    }
+
+
+    .cursor {
+
+      display: inline-block;
+
+      width: 7px;
+
+      height: 15px;
+
+      background:
+        var(--green);
+
+      margin-left: 5px;
+
+      vertical-align: middle;
+
+      animation:
+        blink 1s infinite;
+
+    }
+
+
+    @keyframes blink {
+
+      0%, 45% {
+        opacity: 1;
+      }
+
+      46%, 100% {
+        opacity: 0;
+      }
+
+    }
+
+
+    .hero h1 {
+
+      font-family: "Sora", sans-serif;
+
+      font-size:
+        clamp(52px, 8vw, 92px);
+
+      line-height: 1.02;
+
+      letter-spacing: -4px;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .hero h1 span {
+
+      color: var(--green);
+
+    }
+
+
+    .hero h2 {
+
+      font-family:
+        "JetBrains Mono",
+        monospace;
+
+      font-size:
+        clamp(17px, 2vw, 22px);
+
+      font-weight: 400;
+
+      color:
+        var(--text-secondary);
+
+      margin-bottom: 24px;
+
+    }
+
+
+    .hero-description {
+
+      max-width: 650px;
+
+      color:
+        var(--text-secondary);
+
+      font-size: 17px;
+
+      line-height: 1.8;
+
+      margin-bottom: 35px;
+
+    }
+
+
+    .hero-description strong {
+
+      color: var(--text);
+
+    }
+
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .buttons {
+
+      display: flex;
+
+      gap: 12px;
+
+      flex-wrap: wrap;
+
+    }
+
+
+    .btn {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      padding:
+        12px 19px;
+
+      text-decoration: none;
+
+      font-family:
+        "JetBrains Mono",
+        monospace;
+
+      font-size: 12px;
+
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+
+    }
+
+
+    .btn-primary {
+
+      background:
+        var(--green);
+
+      color: white;
+
+      border:
+        1px solid var(--green);
+
+    }
+
+
+    .btn-primary:hover {
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 8px 25px
+        rgba(8,127,53,0.18);
+
+      background:
+        #066c2c;
+
+    }
+
+
+    .btn-secondary {
+
+      color:
+        var(--green);
+
+      background:
+        white;
+
+      border:
+        1px solid var(--border-green);
+
+    }
+
+
+    .btn-secondary:hover {
+
+      transform:
+        translateY(-2px);
+
+      background:
+        var(--surface-green);
+
+      border-color:
+        var(--green);
+
+    }
+
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+
+      max-width:
+        var(--max-width);
+
+      margin: auto;
+
+      padding:
+        100px 25px;
+
+    }
+
+
+    .section-header {
+
+      margin-bottom: 45px;
+
+    }
+
+
+    .section-number {
+
+      font-family:
+        "JetBrains Mono",
+        monospace;
+
+      color:
+        var(--green);
+
+      font-size: 11px;
+
+      margin-bottom: 7px;
+
+    }
+
+
+    .section-title {
+
+      font-family:
+        "Sora",
+        sans-serif;
+
+      font-size:
+        clamp(32px, 5vw, 48px);
+
+      letter-spacing:
+        -2px;
+
+    }
+
+
+    .section-description {
+
+      color:
+        var(--text-muted);
+
+      max-width: 600px;
+
+      margin-top: 8px;
+
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 50px;
+
+    }
+
+
+    .about-text {
+
+      color:
+        var(--text-secondary);
+
+      font-size: 16px;
+
+      line-height: 1.9;
+
+    }
+
+
+    .about-text p {
+
+      margin-bottom: 18px;
+
+    }
+
+
+    /* =========================
+       TERMINAL CARD
+    ========================= */
+
+    .terminal {
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      box-shadow:
+        0 10px 40px
+        rgba(20,50,30,0.05);
+
+      padding: 25px;
+
+      font-family:
+        "JetBrains Mono",
+        monospace;
+
+      font-size: 12px;
+
+      transition:
+        transform 0.3s,
+        border-color 0.3s,
+        box-shadow 0.3s;
+
+    }
+
+
+    .terminal:hover {
+
+      transform:
+        translateY(-4px);
+
+      border-color:
+        var(--border-green);
+
+      box-shadow:
+        0 15px 45px
+        rgba(20,80,40,0.08);
+
+    }
+
+
+    .terminal-header {
+
+      display: flex;
+
+      gap: 6px;
+
+      padding-bottom: 16px;
+
+      margin-bottom: 18px;
+
+      border-bottom:
+        1px solid var(--border);
+
+    }
+
+
+    .dot {
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background:
+        var(--border-green);
+
+    }
+
+
+    .terminal-row {
+
+      margin: 13px 0;
+
+    }
+
+
+    .key {
+
+      color:
+        var(--green);
+
+    }
+
+
+    .value {
+
+      color:
+        var(--text-secondary);
+
+    }
+
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 20px;
+
+    }
+
+
+    .project {
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      padding: 30px;
+
+      position: relative;
+
+      transition:
+        transform 0.3s,
+        border-color 0.3s,
+        box-shadow 0.3s;
+
+    }
+
+
+    .project::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 35px;
+      height: 3px;
+
+      background:
+        var(--green);
+
+    }
+
+
+    .project:hover {
+
+      transform:
+        translateY(-5px);
+
+      border-color:
+        var(--border-green);
+
+      box-shadow:
+        0 15px 40px
+        rgba(20,70,35,0.08);
+
+    }
+
+
+    .project-number {
+
+      font-family:
+        "JetBrains Mono",
+        monospace;
+
+      font-size: 11px;
+
+      color:
+        var(--green);
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .project h3 {
+
+      font-family:
+        "Sora",
+        sans-serif;
+
+      font-size: 21px;
+
+      margin-bottom: 12px;
+
+    }
+
+
+    .project p {
+
+      color:
+        var(--text-muted);
+
+      font-size: 14px;
+
+      line-height: 1.7;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .tags {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+    }
+
+
+    .tag {
+
+      font-family:
+        "JetBrains Mono",
+        monospace;
+
+      font-size: 9px;
+
+      color:
+        var(--green);
+
+      background:
+        var(--green-light);
+
+      padding:
+        5px 8px;
+
+    }
+
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skills {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 9px;
+
+    }
+
+
+    .skill {
+
+      background:
+        white;
+
+      border:
+        1px solid var(--border);
+
+      padding:
+        9px 13px;
+
+      font-family:
+        "JetBrains Mono",
+        monospace;
+
+      font-size: 12px;
+
+      color:
+        var(--text-secondary);
+
+      transition: 0.2s;
+
+    }
+
+
+    .skill:hover {
+
+      color:
+        var(--green);
+
+      border-color:
+        var(--border-green);
+
+      background:
+        var(--surface-green);
+
+      transform:
+        translateY(-2px);
+
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+
+      text-align: center;
+
+      border-top:
+        1px solid var(--border);
+
+    }
+
+
+    .contact p {
+
+      max-width: 550px;
+
+      margin:
+        15px auto 28px;
+
+      color:
+        var(--text-muted);
+
+    }
+
+
+    .email {
+
+      display: inline-block;
+
+      font-family:
+        "JetBrains Mono",
+        monospace;
+
+      color:
+        var(--green);
+
+      text-decoration: none;
+
+      font-size: 17px;
+
+      margin-bottom: 28px;
+
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+
+      max-width:
+        var(--max-width);
+
+      margin: auto;
+
+      padding:
+        30px 25px 45px;
+
+      border-top:
+        1px solid var(--border);
+
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      color:
+        var(--text-muted);
+
+      font-family:
+        "JetBrains Mono",
+        monospace;
+
+      font-size: 10px;
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 750px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .about-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding:
+          80px 20px;
+      }
+
+      footer {
+
+        flex-direction:
+          column;
+
+        gap: 10px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- Matrix background -->
+
+  <canvas id="matrix"></canvas>
+
+  <div class="grid"></div>
+
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="nav-container">
+
+      <div class="logo">
+        vivek.exe
+      </div>
+
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="#about">
+            01_about
+          </a>
+        </li>
+
+        <li>
+          <a href="#projects">
+            02_projects
+          </a>
+        </li>
+
+        <li>
+          <a href="#skills">
+            03_skills
+          </a>
+        </li>
+
+        <li>
+          <a href="#contact">
+            04_contact
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="terminal-line">
+
+          &gt; system.init()
+          <span class="cursor"></span>
+
+        </div>
+
+
+        <h1>
+
+          Vivek
+          <br>
+
+          <span>Chauhan.</span>
+
+        </h1>
+
+
+        <h2>
+
+          AI / ML Engineer
+
+        </h2>
+
+
+        <p class="hero-description">
+
+          I build intelligent systems using
+          <strong>machine learning, NLP and LLMs</strong>,
+          turning ideas into practical software.
+
+        </p>
+
+
+        <div class="buttons">
+
+          <a
+            href="#projects"
+            class="btn btn-primary"
+          >
+            &gt; VIEW PROJECTS
+          </a>
+
+
+          <a
+            href="#contact"
+            class="btn btn-secondary"
+          >
+            &gt; CONTACT ME
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="section-header">
+
+        <div class="section-number">
+          // 01
+        </div>
+
+        <h2 class="section-title">
+          About Me
+        </h2>
+
+        <p class="section-description">
+          The person behind the systems.
+        </p>
+
+      </div>
+
+
+      <div class="about-grid">
+
+
+        <div class="about-text">
+
+          <p>
+            I'm a computer science student interested
+            in artificial intelligence and machine learning.
+          </p>
+
+          <p>
+            I enjoy understanding how intelligent systems
+            work — from neural networks and NLP to modern
+            large language models.
+          </p>
+
+          <p>
+            My goal is to turn what I learn into
+            practical, useful software.
+          </p>
+
+        </div>
+
+
+        <div class="terminal">
+
+          <div class="terminal-header">
+
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+          </div>
+
+
+          <div class="terminal-row">
+
+            <span class="key">
+              name:
+            </span>
+
+            <span class="value">
+              Vivek Chauhan
+            </span>
+
+          </div>
+
+
+          <div class="terminal-row">
+
+            <span class="key">
+              role:
+            </span>
+
+            <span class="value">
+              AI / ML Engineer
+            </span>
+
+          </div>
+
+
+          <div class="terminal-row">
+
+            <span class="key">
+              focus:
+            </span>
+
+            <span class="value">
+              Machine Learning
+            </span>
+
+          </div>
+
+
+          <div class="terminal-row">
+
+            <span class="key">
+              interests:
+            </span>
+
+            <span class="value">
+              NLP, LLMs, Deep Learning
+            </span>
+
+          </div>
+
+
+          <div class="terminal-row">
+
+            <span class="key">
+              status:
+            </span>
+
+            <span class="value">
+              building...
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+      <div class="section-header">
+
+        <div class="section-number">
+          // 02
+        </div>
+
+        <h2 class="section-title">
+          Projects
+        </h2>
+
+        <p class="section-description">
+          Selected work across AI, ML and software engineering.
+        </p>
+
+      </div>
+
+
+      <div class="projects-grid">
+
+
+        <article class="project">
+
+          <div class="project-number">
+            PROJECT_01
+          </div>
+
+          <h3>
+            MiniGPT
+          </h3>
+
+          <p>
+            A GPT-style language model implemented
+            from scratch using PyTorch with
+            self-attention and transformer blocks.
+          </p>
+
+          <div class="tags">
+
+            <span class="tag">PYTORCH</span>
+            <span class="tag">LLM</span>
+            <span class="tag">TRANSFORMERS</span>
+
+          </div>
+
+        </article>
+
+
+        <article class="project">
+
+          <div class="project-number">
+            PROJECT_02
+          </div>
+
+          <h3>
+            LegalLens
+          </h3>
+
+          <p>
+            A RAG-based system designed to retrieve
+            and analyze information from legal documents.
+          </p>
+
+          <div class="tags">
+
+            <span class="tag">RAG</span>
+            <span class="tag">NLP</span>
+            <span class="tag">LLM</span>
+
+          </div>
+
+        </article>
+
+
+        <article class="project">
+
+          <div class="project-number">
+            PROJECT_03
+          </div>
+
+          <h3>
+            DebugDiary
+          </h3>
+
+          <p>
+            An NLP system for classifying debugging
+            problems and finding semantically similar
+            issues.
+          </p>
+
+          <div class="tags">
+
+            <span class="tag">NLP</span>
+            <span class="tag">EMBEDDINGS</span>
+            <span class="tag">PYTHON</span>
+
+          </div>
+
+        </article>
+
+
+        <article class="project">
+
+          <div class="project-number">
+            PROJECT_04
+          </div>
+
+          <h3>
+            Stock Direction ML
+          </h3>
+
+          <p>
+            A machine learning project exploring
+            financial data and directional prediction.
+          </p>
+
+          <div class="tags">
+
+            <span class="tag">ML</span>
+            <span class="tag">LIGHTGBM</span>
+            <span class="tag">PYTHON</span>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+      <div class="section-header">
+
+        <div class="section-number">
+          // 03
+        </div>
+
+        <h2 class="section-title">
+          Tech Stack
+        </h2>
+
+      </div>
+
+
+      <div class="skills">
+
+        <span class="skill">Python</span>
+        <span class="skill">PyTorch</span>
+        <span class="skill">Scikit-Learn</span>
+        <span class="skill">Pandas</span>
+        <span class="skill">NumPy</span>
+        <span class="skill">NLP</span>
+        <span class="skill">LLMs</span>
+        <span class="skill">RAG</span>
+        <span class="skill">FastAPI</span>
+        <span class="skill">Streamlit</span>
+        <span class="skill">SQL</span>
+        <span class="skill">MongoDB</span>
+        <span class="skill">Airflow</span>
+        <span class="skill">Git</span>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section
+      id="contact"
+      class="contact"
+    >
+
+      <div class="section-number">
+        // 04
+      </div>
+
+
+      <h2 class="section-title">
+        Let's Connect
+      </h2>
+
+
+      <p>
+        Interested in AI, machine learning,
+        or building something interesting?
+      </p>
+
+
+      <a
+        href="mailto:your@email.com"
+        class="email"
+      >
+        your@email.com
+      </a>
+
+
+      <div
+        class="buttons"
+        style="justify-content:center;"
+      >
+
+        <a
+          href="#"
+          class="btn btn-secondary"
+        >
+          GITHUB
+        </a>
+
+
+        <a
+          href="#"
+          class="btn btn-secondary"
+        >
+          LINKEDIN
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <span>
+      © 2026 Vivek Chauhan
+    </span>
+
+    <span>
+      SYSTEM_STATUS: ONLINE
+    </span>
+
+  </footer>
+
+
+  <!-- MATRIX EFFECT -->
+
+  <script>
+
+    const canvas =
+      document.getElementById("matrix");
+
+    const ctx =
+      canvas.getContext("2d");
+
+
+    function resize() {
+
+      canvas.width =
+        window.innerWidth;
+
+      canvas.height =
+        window.innerHeight;
+
+    }
+
+
+    resize();
+
+
+    window.addEventListener(
+      "resize",
+      resize
+    );
+
+
+    const characters =
+      "01アイウエオカキクケコABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+
+    const fontSize = 14;
+
+
+    let columns =
+      Math.floor(
+        canvas.width / fontSize
+      );
+
+
+    let drops =
+      Array(columns).fill(1);
+
+
+    function drawMatrix() {
+
+      ctx.fillStyle =
+        "rgba(245,248,245,0.15)";
+
+      ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+
+      ctx.fillStyle =
+        "#087f35";
+
+      ctx.font =
+        fontSize + "px monospace";
+
+
+      for (
+        let i = 0;
+        i < drops.length;
+        i++
+      ) {
+
+        const character =
+          characters[
+            Math.floor(
+              Math.random() *
+              characters.length
+            )
+          ];
+
+
+        ctx.fillText(
+          character,
+          i * fontSize,
+          drops[i] * fontSize
+        );
+
+
+        if (
+          drops[i] * fontSize >
+            canvas.height &&
+          Math.random() > 0.975
+        ) {
+
+          drops[i] = 0;
+
+        }
+
+
+        drops[i]++;
+
+      }
+
+    }
+
+
+    setInterval(
+      drawMatrix,
+      55
+    );
+
+  </script>
+
+
+</body>
+</html>
+```
