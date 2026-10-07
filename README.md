@@ -1,79 +1,111 @@
-<<<<<<< HEAD
 # Vivek Chauhan — Portfolio
 
-A modern, premium portfolio website built with **React + Vite** (frontend) and **FastAPI** (backend).
+A modern, terminal-themed portfolio website built with **React + Vite** (frontend) and **FastAPI** (backend).
 
-## 🏗️ Architecture
+## Quick Start (Development)
 
-```
-my_portfolio/
-├── frontend/          # React + Vite
-│   ├── src/
-│   │   ├── components/   # All React components
-│   │   ├── assets/       # Images (avatar)
-│   │   ├── api.js        # API client
-│   │   ├── App.jsx       # Main app
-│   │   └── index.css     # Global styles & design tokens
-│   └── index.html
-├── backend/           # FastAPI
-│   ├── main.py          # API endpoints + portfolio data
-│   └── requirements.txt
-├── Resume3.0.pdf
-└── me.jpg
-```
+You need **two terminals** running simultaneously:
 
-## 🚀 Getting Started
-
-### Backend (FastAPI)
+### Terminal 1 — Backend
 ```bash
 cd backend
 pip install -r requirements.txt
 python -m uvicorn main:app --reload --port 8000
 ```
 
-### Frontend (React + Vite)
+### Terminal 2 — Frontend
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-The frontend runs on `http://localhost:5173` and the backend on `http://localhost:8000`.
+Open **http://localhost:5173** in your browser.
 
-## 🎨 Design — "Cosmic Noir"
+---
 
-- **Theme**: Deep space blacks with electric violet/purple and cyan accents
-- **Typography**: Inter (body) + Space Grotesk (headings)
-- **Effects**: Floating orbs, glass morphism cards, animated avatar ring, typewriter text
-- **Animations**: Framer Motion scroll reveals, hover micro-interactions
+## Production Deployment (Single Server)
 
-## 📡 API Endpoints
+In production, FastAPI serves both the API and the built React frontend from a single server.
+
+### 1. Build the frontend
+```bash
+cd frontend
+npm install
+npm run build
+```
+
+### 2. Start the server
+```bash
+cd backend
+pip install -r requirements.txt
+python -m uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
+Open **http://localhost:8000** — everything runs from one URL.
+
+---
+
+## Deploy to Render (Free)
+
+1. Push this repo to GitHub
+2. Go to [render.com](https://render.com) → New → **Web Service**
+3. Connect your GitHub repo
+4. Settings:
+   - **Build Command**: `cd frontend && npm install && npm run build`
+   - **Start Command**: `cd backend && pip install -r requirements.txt && uvicorn main:app --host 0.0.0.0 --port $PORT`
+   - **Root Directory**: (leave empty)
+5. Deploy!
+
+### Or deploy to Railway
+
+1. Push to GitHub
+2. [railway.app](https://railway.app) → New Project → Deploy from GitHub
+3. Add a `Procfile` in the root:
+   ```
+   web: cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
+   ```
+4. Set build command: `cd frontend && npm install && npm run build`
+
+---
+
+## Project Structure
+
+```
+my_portfolio/
+├── frontend/              # React + Vite
+│   ├── src/
+│   │   ├── App.jsx          # Main app (all sections)
+│   │   ├── api.js           # API client
+│   │   └── index.css        # Green terminal theme
+│   ├── public/
+│   │   └── Resume3.0.pdf    # Downloadable resume
+│   └── index.html
+├── backend/               # FastAPI
+│   ├── main.py              # API + serves built frontend
+│   └── requirements.txt
+├── .gitignore
+└── README.md
+```
+
+## API Endpoints
 
 | Endpoint | Method | Description |
 |---|---|---|
-| `/api/all` | GET | All portfolio data in one request |
-| `/api/profile` | GET | Profile info + taglines + stats |
-| `/api/education` | GET | Education history |
+| `/api/all` | GET | All portfolio data |
+| `/api/profile` | GET | Profile info |
 | `/api/experience` | GET | Work experience |
-| `/api/skills` | GET | Technical skills by category |
+| `/api/skills` | GET | Technical skills |
 | `/api/research` | GET | Research work |
-| `/api/projects` | GET | Featured projects |
+| `/api/projects` | GET | Projects |
 | `/api/certifications` | GET | Certifications |
-| `/api/achievements` | GET | Achievements & activities |
-| `/api/contact` | POST | Submit contact form message |
+| `/api/achievements` | GET | Achievements |
+| `/api/contact` | POST | Submit contact form |
 
-## 📋 Sections
+## Features
 
-1. **Hero** — Name, typewriter taglines, stats, social links, animated avatar
-2. **About** — Bio, education timeline, info cards
-3. **Experience** — Work history with timeline
-4. **Skills** — 6 categorized skill groups
-5. **Research** — Academic research with highlights
-6. **Projects** — Project cards with GitHub links
-7. **Certifications** — AWS Cloud Practitioner badge
-8. **Achievements** — Activities & competitions
-9. **Contact** — Form (posts to backend) + contact info
-=======
-# Portfolio
-This is my personal portfolio website built using HTML and CSS to present my technical journey, projects, and skills in a structured and professional format. It highlights my work in Data Structures, Machine Learning, AI systems, and software development, serving as a central hub for my academic and practical projects.
->>>>>>> 2751be8ed86473e46736d156d9690f4cf263cd91
+- 🖥️ **Green Terminal Theme** — matrix rain, JetBrains Mono, terminal cards
+- 📄 **Resume Download** — one-click CV download
+- 📱 **Fully Responsive** — works on all devices
+- ⚡ **Single Server Deploy** — FastAPI serves everything
+- 🔌 **CMS-Ready** — all data served from backend API

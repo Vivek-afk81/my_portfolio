@@ -1,21 +1,27 @@
 """
 Vivek Chauhan Portfolio — FastAPI Backend
 Serves all portfolio data + contact form handler
+In production, also serves the React frontend build
 """
+
+import os
+import json
+from datetime import datetime
+from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, EmailStr
-from datetime import datetime
-import json
-import os
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+from pydantic import BaseModel
+
 
 app = FastAPI(title="Vivek Portfolio API", version="1.0.0")
 
-# CORS — allow frontend dev server
+# CORS — allow frontend dev server and any deployed domain
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -211,11 +217,6 @@ ACHIEVEMENTS = [
 
 # ── API Routes ───────────────────────────────────────────────────────
 
-@app.get("/")
-def root():
-    return {"status": "ok", "message": "Vivek Portfolio API"}
-
-
 @app.get("/api/profile")
 def get_profile():
     return PROFILE
@@ -295,3 +296,30 @@ def submit_contact(msg: ContactMessage):
         json.dump(existing, f, indent=2)
 
     return {"status": "ok", "message": "Message received! I'll get back to you soon."}
+
+
+# ── Serve React Frontend (production) ────────────────────────────────
+# After running `npm run build` in frontend/, the dist/ folder is served here.
+
+FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend" / "dist"
+
+if FRONTEND_DIR.exists():
+    # Serve static assets (JS, CSS, images, etc.)
+    app.mount("/assets", StaticFiles(directory=str(FRONTEND_DIR / "assets")), name="assets")
+
+    # Serve files from public/ that ended up in dist/ (like Resume3.0.pdf, favicon)
+    @app.get("/{full_path:path}")
+    def serve_frontend(full_path: str):
+        """Serve the React SPA — any non-API route returns index.html."""
+        file_path = FRONTEND_DIR / full_path
+        if full_path and file_path.exists() and file_path.is_file():
+            return FileResponse(str(file_path))
+        # Fallback to index.html for SPA routing
+        return FileResponse(str(FRONTEND_DIR / "index.html"))
+else:
+    @app.get("/")
+    def root():
+        return {
+            "status": "ok",
+            "message": "Vivek Portfolio API — Run 'npm run build' in frontend/ to enable serving the UI.",
+        }

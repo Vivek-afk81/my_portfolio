@@ -1,4 +1,5 @@
-const API_BASE = 'http://localhost:8000';
+// Use relative URL in production (same server), localhost in dev
+const API_BASE = import.meta.env.DEV ? 'http://localhost:8000' : '';
 
 export async function fetchAllData() {
   const res = await fetch(`${API_BASE}/api/all`);
